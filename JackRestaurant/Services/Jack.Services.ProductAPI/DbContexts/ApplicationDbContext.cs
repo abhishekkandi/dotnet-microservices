@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Jack.Services.ProductAPI.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Jack.Services.ProductAPI.DbContexts
 {
@@ -8,5 +9,7 @@ namespace Jack.Services.ProductAPI.DbContexts
         {
 
         }
+
+        public DbSet<Product> Products { get; set; }
     }
 }
