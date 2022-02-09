@@ -1,6 +1,16 @@
+using Jack.Web;
+using Jack.Web.Services;
+using Jack.Web.Services.IServices;
+
 var builder = WebApplication.CreateBuilder(args);
 
+ConfigurationManager configuration = builder.Configuration;
+SD.ProductAPIBase = configuration["ServiceUrls:ProductAPI"];
+
 // Add services to the container.
+builder.Services.AddHttpClient<IProductService, ProductService>();
+builder.Services.AddScoped<IProductService, ProductService>();
+
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
